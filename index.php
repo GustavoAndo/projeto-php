@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>Controle de Usuários</h1>
+    <a href="./pages/cadastro-usuario.php">Cadastrar Usuário</a>
 <?php
     if (!empty($row)) {
 ?>
