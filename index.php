@@ -1,6 +1,6 @@
 <?php
     include("./database/conexao.php");
-    $sql_code = "SELECT * FROM usuarios LEFT JOIN projetos ON usuarios.id_projeto = projetos.pro_id";
+    $sql_code = "SELECT * FROM usuarios LEFT JOIN projetos ON usuarios.id_projeto = projetos.pro_id ORDER BY usuarios.usu_nome";
     $sql_query = $conn->query($sql_code) or die($mysqli->error);
     $row = $sql_query->fetch_assoc();
 ?>
