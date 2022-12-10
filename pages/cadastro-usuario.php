@@ -28,7 +28,7 @@
 <?php
         do {
 ?>
-            <option value=<?php echo $row['pro_id']?>><?php echo $row['pro_nome'] ?></option>
+            <option value="<?php echo $row['pro_id']?>"><?php echo $row['pro_nome'] ?></option>
 <?php
         } while($row=$sql_query->fetch_assoc());
 ?>

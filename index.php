@@ -35,7 +35,7 @@
                 <a href="#">Nova Senha</td>
             </td>
             <td>
-                <a href="#">Editar </a>
+                <a href="./pages/edicao-usuario.php?matricula=<?php echo $row['usu_matricula'] ?>">Editar </a>
             </td>
             <td>
                 <a href="#">Deletar</a>
