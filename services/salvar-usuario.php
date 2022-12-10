@@ -16,7 +16,7 @@
     $resultado = mysqli_query($conn, $result);
 
     if(mysqli_affected_rows($conn)){
-        echo $projeto;
+        header("Location: ../index.php");
     } else {
         header("Location: ../pages/cadastro-usuario.php");
     }

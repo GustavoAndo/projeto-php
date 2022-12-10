@@ -19,9 +19,10 @@
 </head>
 <body>
     <h1>Editar Usuário</h1>
-    <form method="POST" action="../services/salvar-usuario.php">
+    <form method="POST" action="../services/atualizar-usuario.php">
         <label>Matricula: </label><br>
-        <input type="number" name="matricula" placeholder="Digite a matricula" required disabled value="<?php echo $row_user['usu_matricula'] ?>"><br><br>
+        <input type="hidden" name="matricula"  value="<?php echo $row_user['usu_matricula'] ?>">
+        <input type="number" placeholder="Digite a matricula" required disabled value="<?php echo $row_user['usu_matricula'] ?>"><br><br>
         <label>Nome: </label><br>
         <input type="text" name="nome" placeholder="Digite o nome completo" required value="<?php echo $row_user['usu_nome'] ?>"><br><br>
         <label>E-mail:</label><br>
