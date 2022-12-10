@@ -1,6 +1,6 @@
 <?php
     include("./database/conexao.php");
-    $sql_code = "SELECT * FROM usuarios";
+    $sql_code = "SELECT * FROM usuarios LEFT JOIN projetos ON usuarios.id_projeto = projetos.pro_id";
     $sql_query = $conn->query($sql_code) or die($mysqli->error);
     $row = $sql_query->fetch_assoc();
 ?>
@@ -28,9 +28,9 @@
     do{
 ?>
         <tr>
-            <td><?php echo $row['nome'] ?></td>
-            <td><?php echo $row['email'] ?></td>
-            <td><?php echo !empty($row['id_projeto']) ? $row['id_projeto'] : "<span>Usuário em nenhum projeto.</span>" ?></td>
+            <td><?php echo $row['usu_nome'] ?></td>
+            <td><?php echo $row['usu_email'] ?></td>
+            <td><?php echo !empty($row['id_projeto']) ? $row['pro_nome'] : "<span>Usuário em nenhum projeto.</span>" ?></td>
             <td> 
                 <a href="#">Nova Senha</td>
             </td>
