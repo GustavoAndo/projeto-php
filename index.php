@@ -59,5 +59,11 @@
         echo "<p>Ainda não há usuários cadastrados.</p>";
     } 
 ?>
+
+<script>
+    function fechar() {
+        document.getElementById("aviso").innerHTML = '';
+    }
+</script>
 </body>
 </html>
