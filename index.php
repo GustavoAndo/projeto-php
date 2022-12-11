@@ -40,7 +40,7 @@
             <td><?php echo $row['usu_email'] ?></td>
             <td><?php echo !empty($row['id_projeto']) ? $row['pro_nome'] : "<span>Usuário em nenhum projeto.</span>" ?></td>
             <td> 
-                <a href="#">Nova Senha</td>
+                <a href="./pages/redefinicao-senha.php?matricula=<?php echo $row['usu_matricula'] ?>">Nova Senha</td>
             </td>
             <td>
                 <a href="./pages/edicao-usuario.php?matricula=<?php echo $row['usu_matricula'] ?>">Editar</a>
