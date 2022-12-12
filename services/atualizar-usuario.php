@@ -16,10 +16,10 @@
     $resultado = mysqli_query($conn, $result);
 
     if(mysqli_affected_rows($conn)){
-        $_SESSION['msg'] = "<p id='aviso'>Usuário atualizado com sucesso!<button onClick='fechar()'>X</button></p>";
+        $_SESSION['msg'] = "<div id='aviso'><p class='p-2 mb-2 text-center bg-success text-white mr-2'>Usuário atualizado com sucesso!<button class='btn btn-success btn-sm' onClick='fechar()'>X</button></p></div>";
         header("Location: ../index.php");
     } else {
-        $_SESSION['msg'] = "<p>Erro ao atualizar o usuário.</p><button onClick='fechar()'>X</button>";
+        $_SESSION['msg'] = "<div id='aviso'><p class='p-2 mb-2 text-center bg-danger text-white mr-2'>Erro ao atualizar o usuário.</p><button class='btn btn-danger btn-sm' onClick='fechar()'>X</button></p></div>";
         header("Location: ../pages/edicao-usuario.php?matricula=$matricula");
     }
 ?>
