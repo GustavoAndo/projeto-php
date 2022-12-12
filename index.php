@@ -16,7 +16,7 @@
     <link href="./styles/styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container px-5 pt-4 my-3">
+    <div class="container px-5 pt-2 my-3">
         <h1 class="text-center">Controle de Usuários</h1>
     <?php
         if(isset($_SESSION['msg'])){
