@@ -31,7 +31,7 @@
                         <a class="nav-link" href="./pages/tabela-projeto.php">Projetos</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mb-2">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item p-1">
                         <a class="nav-link" href="#">Sair</a>
                     </li>

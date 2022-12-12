@@ -16,13 +16,37 @@
     <link href="./styles/styles.css" rel="stylesheet">
 </head>
 <body>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="../">CRUD PHP</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item p-1">
+                        <a class="nav-link" aria-current="page" href="../">Home</a>
+                    </li>
+                    <li class="nav-item p-1">
+                        <a class="nav-link active" href="./tabela-usuario.php">Usuários</a>
+                    </li>
+                    <li class="nav-item p-1">
+                        <a class="nav-link" href="./tabela-projeto.php">Projetos</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item p-1">
+                        <a class="nav-link" href="#">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="pt-5 mt-3">
     <?php
         if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         }    
     ?>
-    <div class="container px-5 pt-2 my-3">
+    <div class="container px-5 mt-4 mb-1">
         <h1 class="text-center">Controle de Usuários</h1>
     <div class="d-flex justify-content-center my-3">
         <a class="btn btn-primary" href="./cadastro-usuario.php">Cadastrar Usuário</a>
@@ -64,6 +88,7 @@
             echo "<p>Ainda não há usuários cadastrados.</p>";
         } 
     ?>
+    </div>
     </div>
 <script>
     function fechar() {
