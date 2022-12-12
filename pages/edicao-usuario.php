@@ -27,19 +27,19 @@
             <div class="form-group p-2">
                 <label>Matricula: </label>
                 <input type="hidden" name="matricula"  value="<?php echo $row_user['usu_matricula'] ?>">
-                <input class="form-control" type="number" placeholder="Digite a matricula" required disabled value="<?php echo $row_user['usu_matricula'] ?>">
+                <input class="form-control mt-1" type="number" placeholder="Digite a matricula" required disabled value="<?php echo $row_user['usu_matricula'] ?>">
             </div>
             <div class="form-group p-2">
                 <label>Nome: </label>
-                <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" required value="<?php echo $row_user['usu_nome'] ?>">
+                <input class="form-control mt-1" type="text" name="nome" placeholder="Digite o nome completo" required value="<?php echo $row_user['usu_nome'] ?>">
             </div>
             <div class="form-group p-2">
                 <label>E-mail:</label>
-                <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" required value="<?php echo $row_user['usu_email'] ?>">
+                <input class="form-control mt-1" type="email" name="email" placeholder="Digite o e-mail" required value="<?php echo $row_user['usu_email'] ?>">
             </div>
             <div class="form-group p-2">
             <label>Projeto:</label>
-                <select class="form-control" name="projeto" value="<?php echo $row_user['id_projeto'] ?>">
+                <select class="form-control mt-1" name="projeto" value="<?php echo $row_user['id_projeto'] ?>">
                     <option value="">Nenhum</option>
         <?php
                 do {

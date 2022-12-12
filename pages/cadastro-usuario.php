@@ -20,23 +20,23 @@
         <form method="POST" action="../services/salvar-usuario.php">
             <div class="form-group p-2">
                 <label>Matricula: </label>
-                <input class="form-control" type="number" name="matricula" placeholder="Digite a matricula" required>
+                <input class="form-control mt-1" type="number" name="matricula" placeholder="Digite a matricula" required>
             </div>
             <div class="form-group p-2">
                 <label>Nome: </label>
-                <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" required>
+                <input class="form-control mt-1" type="text" name="nome" placeholder="Digite o nome completo" required>
             </div>
             <div class="form-group p-2">
                 <label>E-mail:</label>
-                <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" required>
+                <input class="form-control mt-1" type="email" name="email" placeholder="Digite o e-mail" required>
             </div>
             <div class="form-group p-2">
                 <label>Senha:</label>
-                <input class="form-control" type="password" name="senha" placeholder="Digite a senha" required>
+                <input class="form-control mt-1" type="password" name="senha" placeholder="Digite a senha" required>
             </div>
             <div class="form-group p-2">
                 <label>Projeto:</label>
-                <select class="form-control" name="projeto">
+                <select class="form-control mt-1" name="projeto">
                     <option value="">Nenhum</option>
             <?php
                 do {
