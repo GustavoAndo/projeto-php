@@ -16,60 +16,15 @@
     <link href="./styles/styles.css" rel="stylesheet">
 </head>
 <body>
-    <?php
-        if(isset($_SESSION['msg'])){
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }    
-    ?>
     <div class="container px-5 pt-2 my-3">
-        <h1 class="text-center">Controle de Usuários</h1>
-    <div class="d-flex justify-content-center my-3">
-        <a class="btn btn-primary" href="./pages/cadastro-usuario.php">Cadastrar Usuário</a>
+        <h1 class="text-center">Home</h1>
+        <h2>Bem-vindo!</h2>
+        <p>O que você deseja?</p>
+        <ul>
+            <li><a href="./pages/tabela-usuario">Página de Usuários</a></li>
+            <li><a href="./pages/tabela-projeto">Página de Projetos</a></li>
+        </ul>
     </div>
-    <?php
-        if (!empty($row)) {
-    ?>
-        <table class="mt-4 my-3 table table-striped">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Projeto</th>
-                <th scope="col" colspan="3">Ação</th>
-            </tr>
-    <?php
-        do{
-    ?>
-            <tr>
-                <td><?php echo $row['usu_nome'] ?></td>
-                <td><?php echo $row['usu_email'] ?></td>
-                <td><?php echo !empty($row['id_projeto']) ? $row['pro_nome'] : "<span>Usuário em nenhum projeto.</span>" ?></td>
-                <td> 
-                    <a href="./pages/redefinicao-senha.php?matricula=<?php echo $row['usu_matricula'] ?>">Nova Senha</td>
-                </td>
-                <td>
-                    <a href="./pages/edicao-usuario.php?matricula=<?php echo $row['usu_matricula'] ?>">Editar</a>
-                </td>
-                <td>
-                    <a href="javascript: if(confirm('Tem certeza que deseja deletar o usuário <?php echo $row['usu_nome'] ?>?')) 
-                    location.href='./services/excluir-usuario.php?matricula=<?php echo $row['usu_matricula'] ?>';">Excluir</a>
-                </td>
-            </tr>       
-    <?php
-        } while($row=$sql_query->fetch_assoc());
-    ?>            
-        </table>
-    <?php
-        } else {
-            echo "<p>Ainda não há usuários cadastrados.</p>";
-        } 
-    ?>
-    </div>
-<script>
-    function fechar() {
-        document.getElementById("aviso").innerHTML = '';
-    }
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
