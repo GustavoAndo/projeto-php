@@ -16,7 +16,30 @@
     <link href="./styles/styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container px-5 pt-2 my-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="./">CRUD PHP</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item p-1">
+                        <a class="nav-link active" aria-current="page" href="./">Home</a>
+                    </li>
+                    <li class="nav-item p-1">
+                        <a class="nav-link" href="./pages/tabela-usuario.php">Usuários</a>
+                    </li>
+                    <li class="nav-item p-1">
+                        <a class="nav-link" href="./pages/tabela-projeto.php">Projetos</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2">
+                    <li class="nav-item p-1">
+                        <a class="nav-link" href="#">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container px-5 pt-5 mt-5 mb-3">
         <h1 class="text-center">Home</h1>
         <h2>Bem-vindo!</h2>
         <p>O que você deseja?</p>
