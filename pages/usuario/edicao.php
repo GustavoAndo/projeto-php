@@ -52,7 +52,7 @@
                 <div class="form-group p-2">
                     <label>Matricula: </label>
                     <input type="hidden" name="matricula"  value="<?php echo $row_user['usu_matricula'] ?>">
-                    <input class="form-control mt-1" type="number" placeholder="Digite a matricula" required disabled value="<?php echo $row_user['usu_matricula'] ?>">
+                    <input class="form-control mt-1" type="number" disabled value="<?php echo $row_user['usu_matricula'] ?>">
                 </div>
                 <div class="form-group p-2">
                     <label>Nome: </label>
