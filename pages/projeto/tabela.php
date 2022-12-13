@@ -26,10 +26,10 @@
                             <a class="nav-link" aria-current="page" href="../../">Home</a>
                         </li>
                         <li class="nav-item p-1">
-                            <a class="nav-link active" href="./tabela.php">Usuários</a>
+                            <a class="nav-link" href="../usuario/tabela.php">Usuários</a>
                         </li>
                         <li class="nav-item p-1">
-                            <a class="nav-link" href="../projeto/tabela.php">Projetos</a>
+                            <a class="nav-link active" href="./tabela.php">Projetos</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
@@ -59,7 +59,7 @@
         ?>
             <table class="mt-4 my-3 table table-striped">
                 <tr>
-                    <th scope="col">Id</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Orçamento</th>
                     <th scope="col">Data Início</th>
@@ -70,7 +70,7 @@
             do{
         ?>
                 <tr>
-                    <td><?php echo $row['pro_id'] ?></td>
+                    <th scope="row"><?php echo $row['pro_id'] ?></th>
                     <td><?php echo $row['pro_nome'] ?></td>
                     <td><?php echo $row['pro_orcamento'] ?></td>
                     <td><?php              

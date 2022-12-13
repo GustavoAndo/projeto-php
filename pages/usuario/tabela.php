@@ -59,6 +59,7 @@
         ?>
             <table class="mt-4 my-3 table table-striped">
                 <tr>
+                    <th scope="col">Matricula</th>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Projeto</th>
@@ -68,6 +69,7 @@
             do{
         ?>
                 <tr>
+                    <th scope="row"><?php echo $row['usu_matricula'] ?></th>
                     <td><?php echo $row['usu_nome'] ?></td>
                     <td><?php echo $row['usu_email'] ?></td>
                     <td><?php echo !empty($row['id_projeto']) ? $row['pro_nome'] : "<span>Usuário em nenhum projeto.</span>" ?></td>
