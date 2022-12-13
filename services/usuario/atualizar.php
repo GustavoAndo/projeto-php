@@ -1,5 +1,5 @@
 <?php
-    include_once("../database/conexao.php");
+    include_once("../../database/conexao.php");
     session_start();
 
     $matricula = $_POST['matricula'];
@@ -17,9 +17,9 @@
 
     if(mysqli_affected_rows($conn)){
         $_SESSION['msg'] = "<div id='aviso'><p class='p-2 mb-2 text-center bg-success text-white mr-2'>Usuário atualizado com sucesso!<button class='btn btn-success btn-sm' onClick='fechar()'>X</button></p></div>";
-        header("Location: ../pages/tabela-usuario.php");
+        header("Location: ../../pages/usuario/tabela.php");
     } else {
         $_SESSION['msg'] = "<div id='aviso'><p class='p-2 mb-2 text-center bg-danger text-white mr-2'>Erro ao atualizar o usuário.</p><button class='btn btn-danger btn-sm' onClick='fechar()'>X</button></p></div>";
-        header("Location: ../pages/edicao-usuario.php?matricula=$matricula");
+        header("Location: ../../pages/usuario/edicao.php?matricula=$matricula");
     }
 ?>

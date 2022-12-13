@@ -1,5 +1,5 @@
 <?php
-    include("../database/conexao.php");
+    include("../../database/conexao.php");
     
     $matricula = $_GET['matricula'];
     $sql_code_user = "SELECT * FROM usuarios WHERE usu_matricula='$matricula'";
@@ -23,16 +23,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="../">CRUD PHP</a>
+                <a class="navbar-brand" href="../../">CRUD PHP</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item p-1">
-                        <a class="nav-link" aria-current="page" href="../">Home</a>
+                        <a class="nav-link" aria-current="page" href="../../">Home</a>
                     </li>
                     <li class="nav-item p-1">
-                        <a class="nav-link" href="./tabela-usuario.php">Usuários</a>
+                        <a class="nav-link" href="./tabela.php">Usuários</a>
                     </li>
                     <li class="nav-item p-1">
-                        <a class="nav-link" href="./tabela-projeto.php">Projetos</a>
+                        <a class="nav-link" href="../projeto/tabela.php">Projetos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
@@ -45,7 +45,7 @@
     </nav>
     <div class="container px-5 pt-5 mt-5 mb-1">
         <h1 class="text-center">Editar Usuário</h1>
-        <form method="POST" action="../services/atualizar-usuario.php">
+        <form method="POST" action="../../services/usuario/atualizar.php">
             <div class="form-group p-2">
                 <label>Matricula: </label>
                 <input type="hidden" name="matricula"  value="<?php echo $row_user['usu_matricula'] ?>">
