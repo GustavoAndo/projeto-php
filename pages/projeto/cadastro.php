@@ -37,25 +37,29 @@
         <div class="container px-5 pt-5 mt-5 mb-1">
             <h1 class="text-center">Cadastrar Projeto</h1>
             <form method="POST" action="../../services/projeto/salvar.php">
-                <div class="form-group p-2">
-                    <label>Nome: </label>
-                    <input class="form-control mt-1" type="text" name="nome" placeholder="Digite o nome" required>
+                <div class="row p-2 ">
+                    <div class="col">
+                        <label class="form-label">Nome: </label>
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome" required>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Orçamento:</label>
+                        <input class="form-control" type="number" step="0.01" name="orcamento" placeholder="Digite o orçamento" required>
+                    </div>
                 </div>
-                <div class="form-group p-2">
-                    <label>Orçamento:</label>
-                    <input class="form-control mt-1" type="number" step="0.01" name="orcamento" placeholder="Digite o orçamento" required>
+                <div class="row p-2">
+                    <div class="col">
+                        <label class="form-label">Data de início:</label>
+                        <input class="form-control" type="date" name="datainicio" required>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Data de término:</label>
+                        <input class="form-control" type="date" name="datafim" required>
+                    </div>
                 </div>
-                <div class="form-group p-2">
-                    <label>Data de início:</label>
-                    <input class="form-control mt-1" type="date" name="datainicio" required>
-                </div>
-                <div class="form-group p-2">
-                    <label>Data de término:</label>
-                    <input class="form-control mt-1" type="date" name="datafim" required>
-                </div>
-                <div class="form-group p-2">
-                    <label>Descrição:</label>
-                    <textarea class="form-control mt-1" name="descricao"></textarea>
+                <div class="p-2">
+                    <label class="form-label">Descrição:</label>
+                    <textarea class="form-control" name="descricao"></textarea>
                 </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-2">

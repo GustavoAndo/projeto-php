@@ -49,22 +49,21 @@
         <div class="container px-5 pt-5 mt-5 mb-1">
             <h1 class="text-center">Editar Usuário</h1>
             <form method="POST" action="../../services/usuario/atualizar.php">
-                <div class="form-group p-2">
-                    <label>Matricula: </label>
-                    <input type="hidden" name="matricula"  value="<?php echo $row_user['usu_matricula'] ?>">
-                    <input class="form-control mt-1" type="number" disabled value="<?php echo $row_user['usu_matricula'] ?>">
+                <div class="row p-2">
+                    <div class="col-4">
+                        <label class="form-label">Matricula: </label>
+                        <input type="hidden" name="matricula"  value="<?php echo $row_user['usu_matricula'] ?>">
+                        <input class="form-control" type="number" disabled value="<?php echo $row_user['usu_matricula'] ?>">
+                    </div>
+                    <div class="col-8">
+                        <label class="form-label">Nome: </label>
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" required value="<?php echo $row_user['usu_nome'] ?>">
+                    </div>
                 </div>
-                <div class="form-group p-2">
-                    <label>Nome: </label>
-                    <input class="form-control mt-1" type="text" name="nome" placeholder="Digite o nome completo" required value="<?php echo $row_user['usu_nome'] ?>">
-                </div>
-                <div class="form-group p-2">
-                    <label>E-mail:</label>
-                    <input class="form-control mt-1" type="email" name="email" placeholder="Digite o e-mail" required value="<?php echo $row_user['usu_email'] ?>">
-                </div>
-                <div class="form-group p-2">
-                <label>Projeto:</label>
-                    <select class="form-control mt-1" name="projeto" value="<?php echo $row_user['id_projeto'] ?>">
+                <div class="row p-2">
+                <div class="col-5">
+                    <label class="form-label">Projeto:</label>
+                    <select class="form-select" name="projeto" value="<?php echo $row_user['id_projeto'] ?>">
                         <option value="">Nenhum</option>
             <?php
                     do {
@@ -80,8 +79,13 @@
                     } while($row_project=$sql_query_project->fetch_assoc());
             ?>
                     </select>
+                    </div>
+                    <div class="col-7">
+                        <label class="form-label">E-mail:</label>
+                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" required value="<?php echo $row_user['usu_email'] ?>">
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center p-2 mt-2">
+                <div class="d-flex justify-content-center p-2 mt-4">
                     <input class="btn btn-primary" type="submit" value="Editar">
                 </div>
             </form>  

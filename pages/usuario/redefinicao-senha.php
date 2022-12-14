@@ -48,8 +48,8 @@
             <form method="POST" action="../../services/usuario/atualizar-senha.php">
                 <div class="form-group p-2">
                     <input type="hidden" name="matricula" value="<?php echo $row['usu_matricula'] ?>">
-                    <label>Nova Senha:</label>
-                    <input class="form-control mt-1" type="password" name="senha" placeholder="Digite a senha" required>
+                    <label class="form-label">Nova Senha:</label>
+                    <input class="form-control" type="password" name="senha" placeholder="Digite a senha" required>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-2">
                     <input class="btn btn-primary" type="submit" value="Redefinir">

@@ -43,36 +43,40 @@
         <div class="container px-5 pt-5 mt-5 mb-1">
             <h1 class="text-center">Cadastrar Usuário</h1>
             <form method="POST" action="../../services/usuario/salvar.php">
-                <div class="form-group p-2">
-                    <label>Matricula: </label>
-                    <input class="form-control mt-1" type="number" name="matricula" placeholder="Digite a matricula" required>
+                <div class="row p-2">
+                    <div class="col-2">
+                        <label class="form-label">Matricula: </label>
+                        <input class="form-control" type="number" name="matricula" placeholder="Matricula" required>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Nome: </label>
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" required>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Projeto:</label>
+                        <select class="form-select" name="projeto">
+                            <option value="">Nenhum</option>
+                    <?php
+                        do {
+                    ?>
+                            <option value="<?php echo $row['pro_id']?>"><?php echo $row['pro_nome'] ?></option>
+                    <?php
+                        } while($row=$sql_query->fetch_assoc());
+                    ?>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group p-2">
-                    <label>Nome: </label>
-                    <input class="form-control mt-1" type="text" name="nome" placeholder="Digite o nome completo" required>
+                <div class="row p-2">
+                    <div class="col">
+                        <label class="form-label">E-mail:</label>
+                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" required>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Senha:</label>
+                        <input class="form-control" type="password" name="senha" placeholder="Digite a senha" required>
+                    </div>
                 </div>
-                <div class="form-group p-2">
-                    <label>E-mail:</label>
-                    <input class="form-control mt-1" type="email" name="email" placeholder="Digite o e-mail" required>
-                </div>
-                <div class="form-group p-2">
-                    <label>Senha:</label>
-                    <input class="form-control mt-1" type="password" name="senha" placeholder="Digite a senha" required>
-                </div>
-                <div class="form-group p-2">
-                    <label>Projeto:</label>
-                    <select class="form-control mt-1" name="projeto">
-                        <option value="">Nenhum</option>
-                <?php
-                    do {
-                ?>
-                        <option value="<?php echo $row['pro_id']?>"><?php echo $row['pro_nome'] ?></option>
-                <?php
-                    } while($row=$sql_query->fetch_assoc());
-                ?>
-                    </select>
-                </div>
-                <div class="d-flex justify-content-center p-2 mt-2">
+                <div class="d-flex justify-content-center p-2 mt-4">
                     <input class="btn btn-primary" type="submit" value="Cadastrar">
                 </div>
             </form>  
