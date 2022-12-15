@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 10-Dez-2022 às 14:37
+-- Tempo de geração: 15-Dez-2022 às 19:18
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -36,11 +36,7 @@ CREATE TABLE IF NOT EXISTS `projetos` (
   `pro_data_inicio` date NOT NULL,
   `pro_data_fim` date NOT NULL,
   PRIMARY KEY (`pro_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `projetos`
---
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -51,20 +47,14 @@ CREATE TABLE IF NOT EXISTS `projetos` (
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `usu_matricula` int(11) NOT NULL,
-  `usu_nome` varchar(50) NOT NULL,
-  `usu_email` varchar(75) NOT NULL,
+  `usu_nome` varchar(100) NOT NULL,
+  `usu_email` varchar(100) NOT NULL,
   `usu_senha` varchar(255) NOT NULL,
   `id_projeto` int(11) DEFAULT NULL,
   PRIMARY KEY (`usu_matricula`),
+  UNIQUE KEY `usu_email` (`usu_email`),
   KEY `usuario_projeto` (`id_projeto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`usu_matricula`, `usu_nome`, `usu_email`, `usu_senha`, `id_projeto`) VALUES
-(12345, 'Gustavo', 'gustavo@gmail.com', '123', 2);
 
 --
 -- Restrições para despejos de tabelas
