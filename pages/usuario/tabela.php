@@ -94,7 +94,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                Tem certeza que deseja deletar o usuário <?php echo $row['usu_nome'] ?>?
+                                Tem certeza que deseja excluir o usuário <?php echo $row['usu_nome'] ?>?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

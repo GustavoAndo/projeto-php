@@ -17,6 +17,6 @@
             header("Location: ../../pages/usuario/tabela.php");
         }
     } else {
-        header("Location: ../index.php");
+        header("Location: ../../pages/usuario/tabela.php");
     }
 ?>

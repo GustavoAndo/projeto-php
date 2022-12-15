@@ -99,7 +99,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                Tem certeza que deseja deletar o projeto <?php echo $row['pro_nome'] ?>?
+                                Tem certeza que deseja excluir o projeto <?php echo $row['pro_nome'] ?>?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
