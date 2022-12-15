@@ -1,5 +1,7 @@
 <?php
     include("../../database/conexao.php");
+    session_start();
+
     $sql_code = "SELECT * FROM projetos";
     $sql_query = $conn->query($sql_code) or die($mysqli->error);
     $row = $sql_query->fetch_assoc();
@@ -39,18 +41,36 @@
             </div>
         </nav>
     </header>
-    <section>
-        <div class="container px-5 pt-5 mt-5 mb-1">
+    <section class="pt-5 mt-3">
+        <?php
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }    
+        ?>
+        <div class="container px-5 mt-4 mb-1">
             <h1 class="text-center">Cadastrar Usuário</h1>
             <form method="POST" action="../../services/usuario/salvar.php">
                 <div class="row p-2">
                     <div class="col-2">
                         <label class="form-label">Matricula: </label>
-                        <input class="form-control" type="number" name="matricula" placeholder="Matricula" required>
+                        <input class="form-control" type="number" name="matricula" placeholder="Matricula" 
+                        <?php
+                            if(isset($_SESSION['matricula'])){
+                                echo "value=" . $_SESSION['matricula'];
+                                unset($_SESSION['matricula']);
+                            }    
+                        ?>>
                     </div>
                     <div class="col-6">
                         <label class="form-label">Nome: </label>
-                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" required>
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo"
+                        <?php
+                            if(isset($_SESSION['nome'])){
+                                echo "value=" . $_SESSION['nome'];
+                                unset($_SESSION['nome']);
+                            }    
+                        ?>>
                     </div>
                     <div class="col-4">
                         <label class="form-label">Projeto:</label>
@@ -58,10 +78,25 @@
                             <option value="">Nenhum</option>
                     <?php
                         do {
+                            if(isset($_SESSION['projeto'])){
+                                if ($_SESSION['projeto'] == $row['pro_id']) {
                     ?>
-                            <option value="<?php echo $row['pro_id']?>"><?php echo $row['pro_nome'] ?></option>
+                                    <option value=" $row['pro_id']?>" selected><?php echo $row['pro_nome'] ?></option>
+                    <?php               
+                                } else {
+                    ?>
+                                    <option value="<?php echo $row['pro_id']?>"><?php echo $row['pro_nome'] ?></option>
                     <?php
+                                }
+                            } else {
+                    ?>
+                                <option value="<?php echo $row['pro_id']?>"><?php echo $row['pro_nome'] ?></option>
+                    <?php
+                            }
                         } while($row=$sql_query->fetch_assoc());
+                        if(isset($_SESSION['projeto'])) {
+                            unset($_SESSION['projeto']);
+                        }
                     ?>
                         </select>
                     </div>
@@ -69,11 +104,23 @@
                 <div class="row p-2">
                     <div class="col">
                         <label class="form-label">E-mail:</label>
-                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" required>
+                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail"
+                        <?php
+                            if(isset($_SESSION['email'])){
+                                echo "value=" . $_SESSION['email'];
+                                unset($_SESSION['email']);
+                            }    
+                        ?>>
                     </div>
                     <div class="col">
                         <label class="form-label">Senha:</label>
-                        <input class="form-control" type="password" name="senha" placeholder="Digite a senha" required>
+                        <input class="form-control" type="password" name="senha" placeholder="Digite a senha"
+                        <?php
+                            if(isset($_SESSION['senha'])){
+                                echo "value=" . $_SESSION['senha'];
+                                unset($_SESSION['senha']);
+                            }    
+                        ?>>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-4">
