@@ -1,5 +1,6 @@
 <?php
     include("../../database/conexao.php");
+    session_start();
     
     $matricula = $_GET['matricula'];
     $sql_code_user = "SELECT * FROM usuarios WHERE usu_matricula='$matricula'";
@@ -45,8 +46,14 @@
             </div>
         </nav>
     </header>   
-    <section>
-        <div class="container px-5 pt-5 mt-5 mb-1">
+    <section class="pt-5 mt-3">
+        <?php
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }    
+        ?>
+        <div class="container px-5 mt-4 mb-1">
             <h1 class="text-center">Editar Usuário</h1>
             <form method="POST" action="../../services/usuario/atualizar.php">
                 <div class="row p-2">
@@ -57,7 +64,15 @@
                     </div>
                     <div class="col-8">
                         <label class="form-label">Nome: </label>
-                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" required value="<?php echo $row_user['usu_nome'] ?>">
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo" value=
+                        <?php
+                            if(isset($_SESSION['nome'])){
+                                echo "'" . $_SESSION['nome'] . "'";
+                                unset($_SESSION['nome']);
+                            } else {
+                                echo "'" . $row_user['usu_nome'] . "'";
+                            } 
+                        ?>>
                     </div>
                 </div>
                 <div class="row p-2">
@@ -67,22 +82,45 @@
                         <option value="">Nenhum</option>
             <?php
                     do {
-                        if ($row_project['pro_id'] == $row_user['id_projeto']) {
+                        if (isset($_SESSION['projeto'])) {
+                            if ($row_project['pro_id'] == $_SESSION['projeto']) {
             ?>
-                            <option value="<?php echo $row_project['pro_id']?>" selected ><?php echo $row_project['pro_nome']?></option>
+                                 <option value="<?php echo $row_project['pro_id']?>" selected ><?php echo $row_project['pro_nome']?></option>
             <?php
+                            } else {
+            ?>
+                                <option value="<?php echo $row_project['pro_id']?>"><?php echo $row_project['pro_nome']?></option>
+           <?php                    
+                            }
                         } else {
-            ?>         
-                            <option value="<?php echo $row_project['pro_id']?>"><?php echo $row_project['pro_nome'] ?></option>
+                            if ($row_project['pro_id'] == $row_user['id_projeto']) {
+            ?>
+                                <option value="<?php echo $row_project['pro_id']?>" selected ><?php echo $row_project['pro_nome']?></option>
             <?php
+                            } else {
+            ?>         
+                                <option value="<?php echo $row_project['pro_id']?>"><?php echo $row_project['pro_nome'] ?></option>
+            <?php
+                            }
                         }
                     } while($row_project=$sql_query_project->fetch_assoc());
+                    if (isset($_SESSION['projeto'])) {
+                        unset($_SESSION['projeto']);
+                    }
             ?>
                     </select>
                     </div>
                     <div class="col-7">
                         <label class="form-label">E-mail:</label>
-                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" required value="<?php echo $row_user['usu_email'] ?>">
+                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" value="
+                        <?php
+                            if(isset($_SESSION['email'])){
+                                echo "'" . $_SESSION['email'] . "'";
+                                unset($_SESSION['email']);
+                            } else {
+                                echo "'" . $row_user['usu_email'] . "'";
+                            } 
+                        ?>">
                     </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-4">

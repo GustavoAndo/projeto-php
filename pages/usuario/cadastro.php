@@ -67,7 +67,7 @@
                         <input class="form-control" type="text" name="nome" placeholder="Digite o nome completo"
                         <?php
                             if(isset($_SESSION['nome'])){
-                                echo "value=" . $_SESSION['nome'];
+                                echo "value='" . $_SESSION['nome'] . "'";
                                 unset($_SESSION['nome']);
                             }    
                         ?>>
@@ -81,7 +81,7 @@
                             if(isset($_SESSION['projeto'])){
                                 if ($_SESSION['projeto'] == $row['pro_id']) {
                     ?>
-                                    <option value=" $row['pro_id']?>" selected><?php echo $row['pro_nome'] ?></option>
+                                    <option value="<?php echo $row['pro_id']?>" selected><?php echo $row['pro_nome'] ?></option>
                     <?php               
                                 } else {
                     ?>
@@ -107,7 +107,7 @@
                         <input class="form-control" type="email" name="email" placeholder="Digite o e-mail"
                         <?php
                             if(isset($_SESSION['email'])){
-                                echo "value=" . $_SESSION['email'];
+                                echo "value='" . $_SESSION['email'] . "'";
                                 unset($_SESSION['email']);
                             }    
                         ?>>
