@@ -44,12 +44,12 @@
     <section>
         <div class="container px-5 pt-5 mt-5 mb-1">
             <h1 class="text-center">Editar Projeto</h1>
-            <form method="POST" action="../../services/projeto/salvar.php">
+            <form method="POST" action="../../services/projeto/atualizar.php">
                 <div class="p-2 row">
                     <div class="col-2">
                         <input type="hidden" name="id" value="<?php echo $row['pro_id'] ?>">
                         <label class="form-label">ID: </label>
-                        <input class="form-control" type="number" m disabled value="<?php echo $row['pro_id'] ?>">
+                        <input class="form-control" type="number" disabled value="<?php echo $row['pro_id'] ?>">
                     </div>
                     <div class="col-10">
                         <label class="form-label">Nome: </label>
