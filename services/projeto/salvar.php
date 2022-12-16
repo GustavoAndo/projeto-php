@@ -2,11 +2,11 @@
     include_once("../../database/conexao.php");
     session_start();
 
-    $nome = $_POST['nome'];
+    $nome = trim($_POST['nome']);
     $orcamento = $_POST['orcamento'];
     $datainicio = $_POST['datainicio'];
     $datafim = $_POST['datafim'];
-    $descricao = $_POST['descricao'];
+    $descricao = trim($_POST['descricao']);
 
     $error = false;
     $function = '(() => document.getElementById("aviso").innerHTML = "")()';
@@ -26,7 +26,13 @@
 
     if (!$error) {
 
-        $result = "INSERT INTO projetos (pro_nome, pro_orcamento, pro_data_inicio, pro_data_fim, pro_descricao) VALUES ( '$nome', '$orcamento', '$datainicio', '$datafim', '$descricao')";
+        $result = "INSERT INTO projetos (pro_nome, pro_orcamento, pro_data_inicio, pro_data_fim, pro_descricao) VALUES ( '$nome', '$orcamento', '$datainicio', '$datafim',";
+
+        if (empty($descricao)){
+            $result = $result . "NULL)";
+        } else {
+            $result = $result . "'$descricao')";
+        }
 
         $resultado = mysqli_query($conn, $result);
 

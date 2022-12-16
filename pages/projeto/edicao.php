@@ -1,5 +1,6 @@
 <?php
     include("../../database/conexao.php");
+    session_start();
     
     $id = $_GET['id'];
     $sql_code = "SELECT * FROM projetos WHERE pro_id='$id'";
@@ -41,8 +42,14 @@
             </div>
         </nav>
     </header>
-    <section>
-        <div class="container px-5 pt-5 mt-5 mb-1">
+    <section class="pt-5 mt-3">
+        <?php
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }    
+        ?>
+        <div class="container px-5 mt-4 mb-1">
             <h1 class="text-center">Editar Projeto</h1>
             <form method="POST" action="../../services/projeto/atualizar.php">
                 <div class="p-2 row">
@@ -53,26 +60,34 @@
                     </div>
                     <div class="col-10">
                         <label class="form-label">Nome: </label>
-                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome" required value="<?php echo $row['pro_nome'] ?>">
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome" value=
+                        <?php
+                            if(isset($_SESSION['nome'])){
+                                echo "'" . $_SESSION['nome'] . "'";
+                                unset($_SESSION['nome']);
+                            } else {
+                                echo "'" . $row['pro_nome'] . "'";
+                            } 
+                        ?>>
                     </div>
                 </div>
                 <div class="p-2 row">
                     <div class="col">
                         <label class="form-label">Orçamento:</label>
-                        <input class="form-control" type="number" step="0.01" name="orcamento" placeholder="Digite o orçamento" required value="<?php echo $row['pro_orcamento'] ?>">  
+                        <input class="form-control" type="number" step="0.01" name="orcamento" placeholder="Digite o orçamento" value="<?php if(isset($_SESSION['orcamento'])){echo $_SESSION['orcamento']; unset($_SESSION['orcamento']);} else {echo $row['pro_orcamento'];}?>">  
                     </div>
                     <div class="col">
                         <label class="form-label">Data de início:</label>
-                        <input class="form-control" type="date" name="datainicio" required value="<?php echo $row['pro_data_inicio'] ?>">
+                        <input class="form-control" type="date" name="datainicio" value="<?php if(isset($_SESSION['datainicio'])){echo $_SESSION['datainicio']; unset($_SESSION['datainicio']); } else {echo $row['pro_data_inicio'];}?>">
                     </div>
                     <div class="col">
                         <label class="form-label">Data de término:</label>
-                        <input class="form-control" type="date" name="datafim" required value="<?php echo $row['pro_data_fim'] ?>">
+                        <input class="form-control" type="date" name="datafim" value="<?php if(isset($_SESSION['datafim'])){echo $_SESSION['datafim']; unset($_SESSION['datafim']); } else {echo $row['pro_data_fim'];}?>">
                     </div>
                 </div>
                 <div class="p-2">
                     <label class="form-label">Descrição:</label>
-                    <textarea class="form-control" name="descricao"><?php echo $row['pro_descricao'] ?></textarea>
+                    <textarea class="form-control" name="descricao"><?php if(isset($_SESSION['descricao'])){echo $_SESSION['descricao']; unset($_SESSION['descricao']);} else { echo $row['pro_descricao'];}?></textarea>
                 </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-2">

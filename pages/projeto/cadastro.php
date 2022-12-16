@@ -92,14 +92,7 @@
                 </div>
                 <div class="p-2">
                     <label class="form-label">Descrição:</label>
-                    <textarea class="form-control" name="descricao">                        
-                        <?php
-                            if(isset($_SESSION['descricao'])){
-                                echo $_SESSION['descricao'];
-                                unset($_SESSION['descricao']);
-                            }    
-                        ?>
-                    </textarea>
+                    <textarea class="form-control" name="descricao"><?php if(isset($_SESSION['descricao'])){echo $_SESSION['descricao']; unset($_SESSION['descricao']);} ?></textarea>
                 </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-2">
