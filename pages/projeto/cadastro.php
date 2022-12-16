@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,33 +36,70 @@
             </div>
         </nav>
     </header>
-    <section>
-        <div class="container px-5 pt-5 mt-5 mb-1">
+    <section class="pt-5 mt-3">
+        <?php
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }    
+        ?>
+        <div class="container px-5 mt-4 mb-1">
             <h1 class="text-center">Cadastrar Projeto</h1>
             <form method="POST" action="../../services/projeto/salvar.php">
                 <div class="row p-2 ">
                     <div class="col">
                         <label class="form-label">Nome: </label>
-                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome" required>
+                        <input class="form-control" type="text" name="nome" placeholder="Digite o nome"
+                        <?php
+                            if(isset($_SESSION['nome'])){
+                                echo "value='" . $_SESSION['nome'] . "'";
+                                unset($_SESSION['nome']);
+                            }    
+                        ?>>
                     </div>
                     <div class="col">
                         <label class="form-label">Orçamento:</label>
-                        <input class="form-control" type="number" step="0.01" name="orcamento" placeholder="Digite o orçamento" required>
+                        <input class="form-control" type="number" step="0.01" name="orcamento" placeholder="Digite o orçamento" 
+                        <?php
+                            if(isset($_SESSION['orcamento'])){
+                                echo "value='" . $_SESSION['orcamento'] . "'";
+                                unset($_SESSION['orcamento']);
+                            }    
+                        ?>>
                     </div>
                 </div>
                 <div class="row p-2">
                     <div class="col">
                         <label class="form-label">Data de início:</label>
-                        <input class="form-control" type="date" name="datainicio" required>
+                        <input class="form-control" type="date" name="datainicio"
+                        <?php
+                            if(isset($_SESSION['datainicio'])){
+                                echo "value='" . $_SESSION['datainicio'] . "'";
+                                unset($_SESSION['datainicio']);
+                            }    
+                        ?>>
                     </div>
                     <div class="col">
                         <label class="form-label">Data de término:</label>
-                        <input class="form-control" type="date" name="datafim" required>
+                        <input class="form-control" type="date" name="datafim"
+                        <?php
+                            if(isset($_SESSION['datafim'])){
+                                echo "value='" . $_SESSION['datafim'] . "'";
+                                unset($_SESSION['datafim']);
+                            }    
+                        ?>>
                     </div>
                 </div>
                 <div class="p-2">
                     <label class="form-label">Descrição:</label>
-                    <textarea class="form-control" name="descricao"></textarea>
+                    <textarea class="form-control" name="descricao">                        
+                        <?php
+                            if(isset($_SESSION['descricao'])){
+                                echo $_SESSION['descricao'];
+                                unset($_SESSION['descricao']);
+                            }    
+                        ?>
+                    </textarea>
                 </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-2">
