@@ -36,8 +36,15 @@
     </nav>
     <div class="container px-5 pt-5 mt-5 mb-3">
         <h1 class="text-center">Home</h1>
-        <h2>Bem-vindo, <?php echo $_SESSION['login_nome'] ?>!</h2>
-        <p>O que você deseja?</p>
+        <h3 class="pb-3">Bem-vindo, <?php echo $_SESSION['login_nome'] ?>!</h3>
+        <p>Informações do usuário:</p>
+        <ul>
+            <li><strong>Nome: </strong><?php echo $_SESSION['login_nome'] ?></li>
+            <li><strong>Matrícula: </strong><?php echo $_SESSION['login_matricula'] ?></li>
+            <li><strong>Email: </strong><?php echo $_SESSION['login_email'] ?></li>
+            <li><strong>Projeto Atual: </strong><?php echo $_SESSION['login_projeto'] ?></li>
+        </ul>
+        <p>O que você deseja acessar?</p>
         <ul>
             <li><a href="./pages/usuario/tabela.php">Página de Usuários</a></li>
             <li><a href="./pages/projeto/tabela.php">Página de Projetos</a></li>
