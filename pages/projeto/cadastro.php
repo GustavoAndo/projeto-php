@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include_once('../../services/login/protecao.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,7 +29,7 @@
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item p-1">
-                            <a class="nav-link" href="#">Sair</a>
+                            <a class="nav-link" href="../../services/login/deslogar">Sair</a>
                         </li>
                     </ul>
                 </div>

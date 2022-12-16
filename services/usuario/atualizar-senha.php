@@ -1,6 +1,6 @@
 <?php
     include_once("../../database/conexao.php");
-    session_start();
+    include_once('../../services/login/protecao.php');
 
     $matricula = $_POST['matricula'];
     $senha = $_POST['senha'];

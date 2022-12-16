@@ -1,6 +1,6 @@
 <?php
-    include("../../database/conexao.php");
-    session_start();
+    include_once('../../services/login/protecao.php');
+    include_once("../../database/conexao.php");
     
     $id = $_GET['id'];
     $sql_code = "SELECT * FROM projetos WHERE pro_id='$id'";
@@ -35,7 +35,7 @@
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item p-1">
-                            <a class="nav-link" href="#">Sair</a>
+                            <a class="nav-link" href="../../services/login/deslogar">Sair</a>
                         </li>
                     </ul>
                 </div>

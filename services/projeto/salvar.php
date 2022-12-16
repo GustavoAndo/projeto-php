@@ -1,6 +1,6 @@
 <?php
     include_once("../../database/conexao.php");
-    session_start();
+    include_once('../../services/login/protecao.php');
 
     $nome = trim($_POST['nome']);
     $orcamento = $_POST['orcamento'];

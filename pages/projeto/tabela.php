@@ -1,6 +1,6 @@
 <?php
-    include("../../database/conexao.php");
-    session_start();
+    include_once("../../database/conexao.php");
+    include_once('../../services/login/protecao.php');
 
     $sql_code = "SELECT * FROM projetos";
     $sql_query = $conn->query($sql_code) or die($mysqli->error);
@@ -34,7 +34,7 @@
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item p-1">
-                            <a class="nav-link" href="#">Sair</a>
+                            <a class="nav-link" href="../../services/login/deslogar">Sair</a>
                         </li>
                     </ul>
                 </div>
@@ -116,7 +116,7 @@
                 <tr class="collapse multi-collapse" id="multiCollapseExample<?php echo $row['pro_id'] ?>">
                     <td colspan="5">
                         <div class="card card-body">
-                            <p><strong>Descrição: </strong><?php echo $row['pro_descricao'] ?></p>
+                            <p><strong>Descrição: </strong><?php echo !empty($row['pro_descricao']) ? $row['pro_descricao'] : "<em>Projeto sem descrição.</em>"?></p>
                         </div>
                     </td>
                     <td colspan="3">
