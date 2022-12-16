@@ -112,7 +112,7 @@
                     </div>
                     <div class="col-7">
                         <label class="form-label">E-mail:</label>
-                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" value="
+                        <input class="form-control" type="email" name="email" placeholder="Digite o e-mail" value=
                         <?php
                             if(isset($_SESSION['email'])){
                                 echo "'" . $_SESSION['email'] . "'";
@@ -120,7 +120,7 @@
                             } else {
                                 echo "'" . $row_user['usu_email'] . "'";
                             } 
-                        ?>">
+                        ?>>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-4">

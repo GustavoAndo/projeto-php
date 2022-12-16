@@ -1,3 +1,6 @@
+<?php
+    include_once('./services/login/protecao.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +28,7 @@
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item p-1">
-                        <a class="nav-link" href="#">Sair</a>
+                        <a class="nav-link" href="./services/login/deslogar.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -33,7 +36,7 @@
     </nav>
     <div class="container px-5 pt-5 mt-5 mb-3">
         <h1 class="text-center">Home</h1>
-        <h2>Bem-vindo!</h2>
+        <h2>Bem-vindo, <?php echo $_SESSION['login_nome'] ?>!</h2>
         <p>O que você deseja?</p>
         <ul>
             <li><a href="./pages/usuario/tabela.php">Página de Usuários</a></li>

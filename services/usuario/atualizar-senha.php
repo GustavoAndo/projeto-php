@@ -20,8 +20,8 @@
 
     if (!$error) {
 
-        $senhaCript = md5(md5($senha));
-        $result = "UPDATE usuarios SET usu_senha=' $senhaCript', WHERE usu_matricula='$matricula'";
+        $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
+        $result = "UPDATE usuarios SET usu_senha='$senhaCript' WHERE usu_matricula='$matricula'";
 
         $resultado = mysqli_query($conn, $result);
         

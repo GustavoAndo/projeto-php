@@ -40,7 +40,7 @@
 
     if (!$error) {
         
-        $senhaCript = md5(md5($senha));
+        $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
         if (empty($projeto)) {
             $result = "INSERT INTO usuarios (usu_matricula, usu_nome, usu_email, usu_senha) VALUES ('$matricula', '$nome', '$email', '$senha')";
         } else {
