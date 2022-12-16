@@ -1,5 +1,6 @@
 <?php
     include("../../database/conexao.php");
+    session_start();
     
     $matricula = $_GET['matricula'];
     $sql_code = "SELECT * FROM usuarios WHERE usu_matricula='$matricula'";
@@ -41,15 +42,21 @@
             </div>
         </nav>
     </header>
-    <section>
-        <div class="container px-5 pt-5 mt-5 mb-1">
+    <section class="pt-5 mt-3">
+        <?php
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }    
+        ?>
+        <div class="container px-5 mt-4 mb-1">
             <h1 class="text-center">Redefinir Senha</h1>
             <h2 class="text-center mt-3 h4">Usuário: <?php echo $row['usu_nome']?></h2>
             <form method="POST" action="../../services/usuario/atualizar-senha.php">
                 <div class="form-group p-2">
                     <input type="hidden" name="matricula" value="<?php echo $row['usu_matricula'] ?>">
                     <label class="form-label">Nova Senha:</label>
-                    <input class="form-control" type="password" name="senha" placeholder="Digite a senha" required>
+                    <input class="form-control" type="password" name="senha" placeholder="Digite a senha">
                 </div>
                 <div class="d-flex justify-content-center p-2 mt-2">
                     <input class="btn btn-primary" type="submit" value="Redefinir">
