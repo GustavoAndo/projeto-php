@@ -6,6 +6,10 @@
     $sql_code = "SELECT * FROM projetos WHERE pro_id='$id'";
     $sql_query= $conn->query($sql_code) or die($mysqli->error);
     $row = $sql_query->fetch_assoc();
+
+    if (!$row['pro_id']) {
+        header("location: ./tabela.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

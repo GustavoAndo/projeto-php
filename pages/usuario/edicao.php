@@ -3,9 +3,14 @@
     include_once('../../services/login/protecao.php');
     
     $matricula = $_GET['matricula'];
+
     $sql_code_user = "SELECT * FROM usuarios WHERE usu_matricula='$matricula'";
     $sql_query_user= $conn->query($sql_code_user) or die($mysqli->error);
     $row_user = $sql_query_user->fetch_assoc();
+
+    if (!$row_user['usu_matricula']) {
+        header("location: ./tabela.php");
+    }
 
     $sql_code_project = "SELECT * FROM projetos";
     $sql_query_project = $conn->query($sql_code_project) or die($mysqli->error);
