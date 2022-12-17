@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="../../">CRUD PHP</a>
+                    <a class="navbar-brand" href="../../">PROJETO PHP</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item p-1">
                             <a class="nav-link" aria-current="page" href="../../">Home</a>
